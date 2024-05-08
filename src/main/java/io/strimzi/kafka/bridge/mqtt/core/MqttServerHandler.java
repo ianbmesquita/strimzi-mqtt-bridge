@@ -153,7 +153,7 @@ public class MqttServerHandler extends SimpleChannelInboundHandler<MqttMessage> 
         MappingResult mappingResult = mqttKafkaMapper.map(mqttTopic);
 
         // log the topic mapping
-        LOGGER.info("MQTT topic {} mapped to Kafka Topic {} with Key {}", mqttTopic, mappingResult.kafkaTopic(), mappingResult.kafkaKey());
+        LOGGER.info("MQTT topic {} mapped to Kafka Topic with Key {}", mqttTopic, mappingResult.kafkaKey());
 
         byte[] data = payloadToBytes(publishMessage);
         Headers headers = new RecordHeaders();
