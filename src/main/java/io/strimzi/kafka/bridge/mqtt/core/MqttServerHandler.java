@@ -159,7 +159,7 @@ public class MqttServerHandler extends SimpleChannelInboundHandler<MqttMessage> 
         Headers headers = new RecordHeaders();
         headers.add(new RecordHeader("mqtt-topic", mqttTopic.getBytes(StandardCharsets.UTF_8)));
         // build the Kafka record
-        ProducerRecord<String, byte[]> record = new ProducerRecord<>(mappingResult.kafkaTopic(), null, mappingResult.kafkaKey(),
+        ProducerRecord<String, byte[]> record = new ProducerRecord<>(mqttTopic, null, mappingResult.kafkaKey(),
                 data, headers);
 
         // send the record to the Kafka topic
